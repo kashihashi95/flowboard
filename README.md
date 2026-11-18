@@ -1,12 +1,20 @@
 # Flowboard
 
+![A Flowboard board: a "Ship a feature" section with a decision diamond, labeled connectors and the bottom toolbar](docs/media/flowboard-hero.png)
+
 A FigJam-style flowchart editor that runs entirely in the browser, with no account and no server.
 
 ## The problem it solves
 
 Online whiteboards need an account, keep your diagrams on someone else's server, and can't easily be written or read by an AI assistant. Flowboard keeps every board on your own machine (browser storage, a local workspace folder, or a single self-contained HTML file) and round-trips boards through a plain Markdown format that both people and AI tools can write by hand.
 
-<!-- SCREENSHOT: a flowchart board with a few connected shapes, a section and the bottom toolbar visible; ideally a short GIF of dragging a connector out of a shape -->
+![Dragging a connector out of a shape onto empty canvas adds a new connected shape](docs/media/flowboard-connector.gif)
+
+*Drag a connector out of a shape and let go on empty canvas: a new shape appears, already connected.*
+
+![Tidy up rearranging a messy board into a layered flowchart](docs/media/flowboard-tidy.gif)
+
+*Tidy up (Shift+T) turns a messy board into a neat layered flowchart.*
 
 ## Tech stack
 
