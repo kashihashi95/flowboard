@@ -1,5 +1,7 @@
 # Flowboard
 
+Live demo: https://kashihashi95.github.io/flowboard/
+
 ![A Flowboard board: a "Ship a feature" section with a decision diamond, labeled connectors and the bottom toolbar](docs/media/flowboard-hero.png)
 
 A FigJam-style flowchart editor that runs entirely in the browser, with no account and no server.
