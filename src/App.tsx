@@ -3453,6 +3453,13 @@ function HelpPanel({ onClose, touch }: { onClose: () => void; touch: boolean }) 
           </div>
         ))}
       </dl>
+      <p className="help-credit">
+        Flowboard by Kimngoun Peou ·{' '}
+        <a href="https://github.com/kashihashi95/flowboard" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>{' '}
+        · MIT License
+      </p>
     </div>
   )
 }

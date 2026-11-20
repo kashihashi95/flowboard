@@ -444,6 +444,16 @@ select {
 .help dd {
   margin: 0;
 }
+.help-credit {
+  margin: 10px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+.help-credit a {
+  color: inherit;
+}
 
 .backdrop {
   inset: 0;
