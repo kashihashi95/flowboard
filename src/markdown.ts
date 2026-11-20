@@ -145,7 +145,7 @@ export function buildMarkdown(doc: Doc, title: string, ids: Set<string> | null):
     return short.get(id)!
   }
   const preview = [
-    '<!-- A Flowboard board. The format is described in FLOWBOARD-MARKDOWN.md (in Flowboard: Menu → Download Markdown guide). To change the board, edit the lists below; never edit the flowboard:history block at the end. -->',
+    '<!-- A Flowboard board (https://github.com/kashihashi95/flowboard). The format is described in FLOWBOARD-MARKDOWN.md (in Flowboard: Menu → Download Markdown guide). To change the board, edit the lists below; never edit the flowboard:history block at the end. -->',
     '<!-- Preview for Obsidian and GitHub. Flowboard ignores this block and reads the lists below. -->',
     '```mermaid',
     ...mermaid(part, shortId),
