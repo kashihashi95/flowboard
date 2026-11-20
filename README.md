@@ -90,6 +90,7 @@ I built Flowboard with Claude Code, directing the agent feature by feature and r
 - Saving everything: .md (what Save to workspace writes) holds the whole board, plus a hidden history block at the end with the timeline (each track point stored as the changes since the one before, pictures stored once), the view and the toggles. A Flowboard .html (Export → HTML, which goes into the workspace folder when one is set) also carries the timeline's track points, the view and the Diff, Flow and crossing-color toggles; open it directly or with Open file. Older .json saves still open. Menu → Download Markdown guide saves FLOWBOARD-MARKDOWN.md from the app itself.
 - Workspace folder (Chrome/Edge): Menu → Workspace to choose a folder. It lists the charts in it; Ctrl+S saves back to the open file (or a new .md named after the board), Ctrl+Shift+S saves under a new name. The folder is remembered; the browser asks once per visit to use it again.
 - Workspaces: the Workspace panel lists every folder you've used, to switch between them.
+- Updates: Help (?) shows the version. **Check for updates** asks the live site which version it serves, only when you click it; nothing about your board is sent. To update a saved .html, open it with **Open file** in the latest Flowboard and export it again.
 
 ### Review & history
 

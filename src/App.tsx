@@ -1,5 +1,6 @@
 import { useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type React from 'react'
+import { BUILT, LATEST_URL, VERSION, checkForUpdate, type UpdateResult } from './version'
 import { buildSvg, copyBlob, detailScale, download, rasterize, safeName } from './exporter'
 import { ExportPanel, type ExportScope } from './ExportPanel'
 import { historyBlock, readHistory } from './history'
@@ -3460,6 +3461,52 @@ function HelpPanel({ onClose, touch }: { onClose: () => void; touch: boolean }) 
         </a>{' '}
         · MIT License
       </p>
+      <UpdateCheck />
+    </div>
+  )
+}
+
+function UpdateCheck() {
+  const [state, setState] = useState<UpdateResult | 'idle' | 'checking'>('idle')
+  const check = () => {
+    setState('checking')
+    void checkForUpdate().then(setState)
+  }
+  const latest = (
+    <a href={LATEST_URL} target="_blank" rel="noopener noreferrer">
+      Open the latest Flowboard
+    </a>
+  )
+  return (
+    <div className="help-update" aria-live="polite">
+      <span>
+        Version {VERSION} ({BUILT})
+      </span>
+      {(state === 'idle' || state === 'checking') && (
+        <button className="textbtn" onClick={check} disabled={state === 'checking'}>
+          {state === 'checking' ? 'Checking…' : 'Check for updates'}
+        </button>
+      )}
+      {typeof state === 'object' && state.kind === 'current' && <p>You have the latest version.</p>}
+      {typeof state === 'object' && state.kind === 'newer' && (
+        <p>
+          A newer version is available{state.built ? ` (${state.built})` : ''}. {latest}, choose <b>Open file</b>, pick
+          this file, then export it again as HTML.
+        </p>
+      )}
+      {typeof state === 'object' && state.kind === 'dev' && (
+        <p>
+          This is a local build, so it can't be compared. The live version is from {state.built || 'an unknown date'}. {latest}.
+        </p>
+      )}
+      {typeof state === 'object' && state.kind === 'failed' && (
+        <p>
+          Couldn't reach the Flowboard site. Check your connection.{' '}
+          <button className="textbtn" onClick={check}>
+            Try again
+          </button>
+        </p>
+      )}
     </div>
   )
 }

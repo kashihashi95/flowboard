@@ -454,6 +454,22 @@ select {
 .help-credit a {
   color: inherit;
 }
+.help-update {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.help-update p {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+}
+.help-update a {
+  color: inherit;
+}
 
 .backdrop {
   inset: 0;

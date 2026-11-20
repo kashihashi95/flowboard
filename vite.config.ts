@@ -9,4 +9,10 @@ export default defineConfig(({ command, mode, isPreview }) => ({
   base: mode === 'single' || (command === 'serve' && !isPreview) ? '/' : '/flowboard/',
   plugins: mode === 'single' ? [react(), viteSingleFile()] : [react()],
   build: mode === 'single' ? { outDir: 'dist-single' } : {},
+  // Which build this is, for Help → Check for updates. The Pages deploy writes the
+  // same values to version.json; local builds are "dev".
+  define: {
+    __FLOWBOARD_VERSION__: JSON.stringify(process.env.GITHUB_SHA?.slice(0, 7) ?? 'dev'),
+    __FLOWBOARD_BUILT__: JSON.stringify(process.env.FLOWBOARD_BUILT ?? new Date().toISOString().slice(0, 10)),
+  },
 }))

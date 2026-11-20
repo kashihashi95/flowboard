@@ -24,7 +24,11 @@ jobs:
           node-version: 22
           cache: npm
       # The single-file build, so Export → HTML (a copy of the page) carries the whole app.
-      - run: npm ci && npm run build:single
+      # version.json is what Help → Check for updates compares against.
+      - run: |
+          export FLOWBOARD_BUILT=$(date -u +%F)
+          npm ci && npm run build:single
+          printf '{"version":"%s","built":"%s"}\n' "${GITHUB_SHA:0:7}" "$FLOWBOARD_BUILT" > dist-single/version.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
