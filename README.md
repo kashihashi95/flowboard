@@ -33,7 +33,7 @@ Requires Node.js 20.19+ or 22.12+.
 npm install
 npm run dev          # http://localhost:5173
 npm run build        # static site in dist/
-npm run build:single # one self-contained HTML file in dist-single/
+npm run build:single # one self-contained HTML file in dist-single/ (what GitHub Pages serves)
 npm run preview      # serve the dist/ build locally
 ```
 

@@ -23,11 +23,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci && npm run build
+      # The single-file build, so Export → HTML (a copy of the page) carries the whole app.
+      - run: npm ci && npm run build:single
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist-single
 
   deploy:
     needs: build
